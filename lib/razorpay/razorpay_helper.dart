@@ -37,7 +37,7 @@ class PaymentService {
           'name': 'AKS & Co.',
           'order_id': orderId, // Generate order_id using Orders API
           'description': 'Thank you for shopping with us!', //Order Description to be shown in razor pay page
-          'timeout': 120, // in seconds
+          'timeout': 60, // in seconds
           'prefill': {'contact': '6353508065', 'email': 'avadh@yopmail.com'}, //contact number and email id of user
           'method': {
             'netbanking': false,
