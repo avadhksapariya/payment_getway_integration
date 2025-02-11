@@ -49,7 +49,7 @@ class PaymentService {
         };
         razorpay.open(options);
       } else {
-        log("Could not found orderId.");
+        log("Could not find orderId.");
       }
     });
   }
