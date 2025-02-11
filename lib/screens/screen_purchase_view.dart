@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payment_getway_integration/apis/rest_razorpay_service.dart';
 import 'package:payment_getway_integration/razorpay/razorpay_helper.dart';
 
 class ScreenPurchaseView extends StatefulWidget {
@@ -10,6 +11,12 @@ class ScreenPurchaseView extends StatefulWidget {
 
 class _ScreenPurchaseViewState extends State<ScreenPurchaseView> {
   final PaymentService paymentService = PaymentService();
+
+  @override
+  void dispose() {
+    paymentService.disposeRazorPayInstance();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +35,11 @@ class _ScreenPurchaseViewState extends State<ScreenPurchaseView> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          paymentService.openSession(amount: 11);
+          RESTRazorpayService().createOrder(11, "rcp_id_1").then(
+            (value) {
+              paymentService.initiateRazorPay();
+            },
+          );
         },
         tooltip: "Pay",
         child: const Icon(Icons.paypal),

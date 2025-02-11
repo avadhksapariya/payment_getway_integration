@@ -3,15 +3,17 @@ import 'dart:developer';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import 'package:payment_getway_integration/models/model_razorpay_response.dart';
+import 'package:payment_getway_integration/razorpay/razorpay_helper.dart';
 
 class RESTRazorpayService {
   static const String razorPayUrl = "https://api.razorpay.com/v1/orders";
   final razorPayKey = dotenv.get("KEY_ID");
   final razorPaySecret = dotenv.get("KEY_SECRET");
 
-  Future<Map<String, dynamic>?> razorPayApi(num amount, String receiptId) async {
-    const String tag = 'post_razorpay';
-    Map<String, dynamic>? data;
+  Future<ModelRazorPayResponse?> createOrder(num amount, String receiptId) async {
+    const String tag = 'post_razorpay_order';
+    ModelRazorPayResponse? data;
 
     final auth = 'Basic${base64Encode(utf8.encode("$razorPayKey:$razorPaySecret"))}';
     log('$tag AUTH: $auth');
@@ -34,17 +36,15 @@ class RESTRazorpayService {
       http.StreamedResponse response = await request.send();
 
       final responseString = await response.stream.bytesToString();
-      log('$tag Response: $responseString');
+      log('$tag response: $responseString');
 
-      if (response.statusCode == 200) {
-        final decodedResult = json.decode(responseString);
-        data = {"status": "success", "body": decodedResult};
-      } else {
-        data = {"status": "fail", "message": response.reasonPhrase};
-      }
+      final decodedResult = json.decode(responseString);
+      data = ModelRazorPayResponse.fromJson(decodedResult);
+      PaymentService().openCheckoutSession(data);
+      return data;
     } catch (e) {
-      log('$tag Error: $e');
+      log('$tag error: ${e.toString()}');
+      return null;
     }
-    return data;
   }
 }
