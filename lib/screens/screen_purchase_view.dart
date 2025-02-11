@@ -11,9 +11,17 @@ class ScreenPurchaseView extends StatefulWidget {
 
 class _ScreenPurchaseViewState extends State<ScreenPurchaseView> {
   final PaymentService paymentService = PaymentService();
+  TextEditingController tcPmtAmount = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    paymentService.initiateRazorPay();
+  }
 
   @override
   void dispose() {
+    tcPmtAmount.dispose();
     paymentService.disposeRazorPayInstance();
     super.dispose();
   }
@@ -26,20 +34,36 @@ class _ScreenPurchaseViewState extends State<ScreenPurchaseView> {
         foregroundColor: Colors.white,
         title: const Text("RazorPay Integration"),
       ),
-      body: const SafeArea(
-          child: Center(
-        child: Text(
-          "Pay with Razorpay",
-          style: TextStyle(fontSize: 18),
+      body: SafeArea(
+          child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            const Text(
+              "Pay with Razorpay",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            TextField(
+              controller: tcPmtAmount,
+              keyboardType: TextInputType.number,
+              maxLength: 10,
+              maxLines: 1,
+              decoration: const InputDecoration(hintText: "Amount", counterText: ""),
+            ),
+          ],
         ),
       )),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          RESTRazorpayService().createOrder(11, "rcp_id_1").then(
-            (value) {
-              paymentService.initiateRazorPay();
-            },
-          );
+        onPressed: () async {
+          if (tcPmtAmount.text.isNotEmpty && tcPmtAmount.text != "") {
+            await RESTRazorpayService().createOrder(int.parse(tcPmtAmount.text), "rcp_id_1").then(
+              (value) {
+                tcPmtAmount.clear();
+              },
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Invalid input")));
+          }
         },
         tooltip: "Pay",
         child: const Icon(Icons.paypal),
