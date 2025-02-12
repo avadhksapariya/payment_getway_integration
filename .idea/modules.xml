@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/payment_getway_integration.iml" filepath="$PROJECT_DIR$/payment_getway_integration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/payment_gateway_integration.iml" filepath="$PROJECT_DIR$/payment_gateway_integration.iml" />
       <module fileurl="file://$PROJECT_DIR$/android/payment_getway_integration_android.iml" filepath="$PROJECT_DIR$/android/payment_getway_integration_android.iml" />
     </modules>
   </component>
