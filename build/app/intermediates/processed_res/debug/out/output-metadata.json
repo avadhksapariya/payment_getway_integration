@@ -4,7 +4,7 @@
     "type": "PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "com.apexavadh.payment_getway",
+  "applicationId": "com.apexavadh.payment_gateway",
   "variantName": "debug",
   "elements": [
     {

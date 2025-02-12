@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.apexavadh.payment_getway"
+3    package="com.apexavadh.payment_gateway"
 4    android:versionCode="1"
 5    android:versionName="1.0.0" >
 6
@@ -100,12 +100,12 @@
 64
 65    <permission
 65-->[androidx.core:core:1.13.1] C:\Users\EmpiereTech-Avadh\.gradle\caches\transforms-3\c666c258fca39b3353b46678a6b928ab\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
-66        android:name="com.apexavadh.payment_getway.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+66        android:name="com.apexavadh.payment_gateway.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
 66-->[androidx.core:core:1.13.1] C:\Users\EmpiereTech-Avadh\.gradle\caches\transforms-3\c666c258fca39b3353b46678a6b928ab\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
 67        android:protectionLevel="signature" />
 67-->[androidx.core:core:1.13.1] C:\Users\EmpiereTech-Avadh\.gradle\caches\transforms-3\c666c258fca39b3353b46678a6b928ab\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
 68
-69    <uses-permission android:name="com.apexavadh.payment_getway.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+69    <uses-permission android:name="com.apexavadh.payment_gateway.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 69-->[androidx.core:core:1.13.1] C:\Users\EmpiereTech-Avadh\.gradle\caches\transforms-3\c666c258fca39b3353b46678a6b928ab\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
 69-->[androidx.core:core:1.13.1] C:\Users\EmpiereTech-Avadh\.gradle\caches\transforms-3\c666c258fca39b3353b46678a6b928ab\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 70
@@ -116,7 +116,7 @@
 74        android:debuggable="true"
 75        android:extractNativeLibs="true"
 76        android:icon="@mipmap/ic_launcher"
-77        android:label="Payment Getway" >
+77        android:label="Payment Gateway" >
 78        <activity
 79            android:name="com.example.payment_getway_integration.MainActivity"
 80            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -189,7 +189,7 @@
 130-->[com.razorpay:standard-core:1.6.46] C:\Users\EmpiereTech-Avadh\.gradle\caches\transforms-3\48c8c98544c2d19371aba4652fb152cc\transformed\jetified-standard-core-1.6.46\AndroidManifest.xml:61:9-69:20
 131            android:name="androidx.startup.InitializationProvider"
 131-->[com.razorpay:standard-core:1.6.46] C:\Users\EmpiereTech-Avadh\.gradle\caches\transforms-3\48c8c98544c2d19371aba4652fb152cc\transformed\jetified-standard-core-1.6.46\AndroidManifest.xml:62:13-67
-132            android:authorities="com.apexavadh.payment_getway.androidx-startup"
+132            android:authorities="com.apexavadh.payment_gateway.androidx-startup"
 132-->[com.razorpay:standard-core:1.6.46] C:\Users\EmpiereTech-Avadh\.gradle\caches\transforms-3\48c8c98544c2d19371aba4652fb152cc\transformed\jetified-standard-core-1.6.46\AndroidManifest.xml:63:13-68
 133            android:exported="false" >
 133-->[com.razorpay:standard-core:1.6.46] C:\Users\EmpiereTech-Avadh\.gradle\caches\transforms-3\48c8c98544c2d19371aba4652fb152cc\transformed\jetified-standard-core-1.6.46\AndroidManifest.xml:64:13-37

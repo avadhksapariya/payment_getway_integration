@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.apexavadh.payment_getway"
+    package="com.apexavadh.payment_gateway"
     android:versionCode="1"
     android:versionName="1.0.0" >
 
@@ -63,10 +63,10 @@
         android:required="true" />
 
     <permission
-        android:name="com.apexavadh.payment_getway.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.apexavadh.payment_gateway.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.apexavadh.payment_getway.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.apexavadh.payment_gateway.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:name="android.app.Application"
@@ -74,7 +74,7 @@
         android:debuggable="true"
         android:extractNativeLibs="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Payment Getway" >
+        android:label="Payment Gateway" >
         <activity
             android:name="com.example.payment_getway_integration.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -129,7 +129,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.apexavadh.payment_getway.androidx-startup"
+            android:authorities="com.apexavadh.payment_gateway.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="com.razorpay.RazorpayInitializer"
